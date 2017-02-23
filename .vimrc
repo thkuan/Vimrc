@@ -5,6 +5,7 @@ set nu
 set ai
 set cursorline
 set hlsearch
+set incsearch
 set shiftwidth=4
 set expandtab
 set tabstop=4
