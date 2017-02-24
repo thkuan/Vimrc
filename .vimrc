@@ -1,11 +1,15 @@
 set encoding=utf-8
 
 syntax on
-" Show line number
+" Set line number on
 set nu
+" Auto indent
 set ai
+" Enable cursor line
 set cursorline
+" Highlight search
 set hlsearch
+" Enable incrementally search
 set incsearch
 set shiftwidth=4
 set expandtab
