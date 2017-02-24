@@ -1,6 +1,7 @@
 set encoding=utf-8
 
 syntax on
+" Show line number
 set nu
 set ai
 set cursorline
