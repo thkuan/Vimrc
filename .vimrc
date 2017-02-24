@@ -1,7 +1,6 @@
 set encoding=utf-8
 
 syntax on
-
 " Set line number on
 set nu
 " Auto indent
