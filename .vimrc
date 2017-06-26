@@ -1,3 +1,10 @@
+" Ignore error if not installed pathogen.vim for runtime path manipulation
+silent! execute pathogen#infect()
+autocmd vimenter * NERDTree
+" NERDTree plugin: https://github.com/scrooloose/nerdtree
+" Bind <F5> to quick open and close tree hierarchy
+map <F5> :NERDTreeToggle<CR>
+
 " Enable filetype detection
 filetype on
 filetype indent on
@@ -7,7 +14,7 @@ syntax on
 " Set line number on
 set nu
 " Auto indent
-set ai
+set autoindent
 " Enable cursor line
 set cursorline
 " Highlight search
@@ -21,8 +28,7 @@ set tabstop=4
 " Number of space chars inserted for indentation
 set shiftwidth=4
 
-set smarttab
-set autoindent
+"set smarttab
 
 " [makefiles]: Don't expand tabs to spaces, since actual tab characters are
 " needed, and have indentation at 8 chars to be sure that all indents are tabs
@@ -33,3 +39,4 @@ autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
 set bg=dark
 hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=NONE
 hi CursorLineNr cterm=bold ctermfg=Green ctermbg=NONE
+
