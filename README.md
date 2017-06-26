@@ -19,3 +19,8 @@ Install plugin NERDTree from [nerdtree](https://github.com/scrooloose/nerdtree, 
 ```
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 ```
+
+## Taglist
+```
+git clone https://github.com/vim-scripts/taglist.vim ~/.vim/bundle/taglist
+```
