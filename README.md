@@ -20,7 +20,12 @@ Install plugin NERDTree from [nerdtree](https://github.com/scrooloose/nerdtree, 
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 ```
 
-## Taglist
+## Tag List
 ```
 git clone https://github.com/vim-scripts/taglist.vim ~/.vim/bundle/taglist
+```
+
+## Color Theme - Molokai
+```
+git clone https://github.com/tomasr/molokai ~/.vim/colors
 ```
