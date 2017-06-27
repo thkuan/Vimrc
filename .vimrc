@@ -7,7 +7,11 @@ silent! execute pathogen#infect()
 " NERDTree plugin: https://github.com/scrooloose/nerdtree
 " Bind <F5> to quick open and close tree hierarchy
 map <F5> :NERDTreeToggle<CR>
+" Default open NERDTree
 silent! autocmd vimenter * NERDTree
+" Enable mosue click in NORMAL/VISUAL modes
+set mouse=nv
+let NERDTreeMouseMode = 3
 
 "
 " Tag list
@@ -15,6 +19,8 @@ silent! autocmd vimenter * NERDTree
 " TagList plugin: https://github.com/vim-scripts/taglist.vim
 " Bind <F6> to quick open and close taglist window
 map <F6> :TlistToggle<CR>
+
+
 " Show current file Tlist
 let Tlist_Show_One_File = 1
 " Exit if Tlist is the last window
