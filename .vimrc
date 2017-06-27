@@ -19,8 +19,6 @@ let NERDTreeMouseMode = 3
 " TagList plugin: https://github.com/vim-scripts/taglist.vim
 " Bind <F6> to quick open and close taglist window
 map <F6> :TlistToggle<CR>
-
-
 " Show current file Tlist
 let Tlist_Show_One_File = 1
 " Exit if Tlist is the last window
@@ -29,6 +27,32 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
 
 
+"
+" Cscope
+"
+if has("cscope")
+    " Use both cscope and ctag for 'ctrl+]', 'ta', and 'vim -t'
+    set cscopetag
+    set csto=0
+    if filereadable("cscope.out")
+        cs add cscope.out
+    elseif $CSCOPE_DB != ""
+        cs add $CSOPE_DB
+    endif
+
+    " Show msg when any other cscope db added
+    set cscopeverbose
+
+    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>  
+    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>  
+    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>  
+    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>  
+    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>  
+    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>  
+    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>  
+
+endif
 
 " Enable filetype detection
 filetype on
@@ -51,8 +75,9 @@ set expandtab
 set tabstop=4
 " Number of space chars inserted for indentation
 set shiftwidth=4
-
-"set smarttab
+" Indent and backward indent in normal mode
+nmap <tab> V>
+nmap <S-Tab> V<
 
 " [makefiles]: Don't expand tabs to spaces, since actual tab characters are
 " needed, and have indentation at 8 chars to be sure that all indents are tabs
@@ -67,11 +92,41 @@ syntax on
 " Enable molokai color scheme
 silent! colorscheme molokai
 " Override color of line number and current line number
+set t_Co=256
 set bg=dark
 hi LineNr cterm=bold ctermfg=DarkGrey ctermbg=NONE
 hi CursorLineNr cterm=bold ctermfg=Green ctermbg=NONE
 hi Include cterm=bold ctermfg=Red ctermbg=NONE
 hi PreCondi cterm=bold ctermfg=Red ctermbg=NONE
 hi Macro cterm=Italic ctermfg=White ctermbg=NONE
+hi Error cterm=Italic ctermfg=White ctermbg=NONE
 ""hi Define cterm=Italic ctermfg=White ctermbg=NONE
 
+" Override color of status line
+" Refer to https://magiclen.org/vimrc/
+set statusline=%#filepath#[%{expand('%:p')}]%#filetype#[%{strlen(&fenc)?&fenc:&enc},\ %{&ff},\ %{strlen(&filetype)?&filetype:'plain'}]%#filesize#%{FileSize()}%{IsBinary()}%=%#position#%c,%l/%L\ [%3p%%]
+hi filepath cterm=none ctermfg=White ctermbg=238
+hi filetype cterm=none ctermfg=White ctermbg=238
+hi filesize cterm=none ctermfg=White ctermbg=238
+hi position cterm=none ctermfg=228 ctermbg=238
+function IsBinary()
+    if (&binary == 0)
+        return ""
+    else
+        return "[Binary]"
+    endif
+endfunction
+                                     
+function FileSize()
+    let bytes = getfsize(expand("%:p"))
+    if bytes <= 0
+        return "[Empty]"
+    endif
+    if bytes < 1024
+        return "[" . bytes . "B]"
+    elseif bytes < 1048576
+        return "[" . (bytes / 1024) . "KB]"
+    else
+        return "[" . (bytes / 1048576) . "MB]"
+    endif
+endfunction
