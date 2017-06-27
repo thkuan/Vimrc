@@ -104,10 +104,7 @@ hi Error cterm=Italic ctermfg=White ctermbg=NONE
 
 " Override color of status line
 " Refer to https://magiclen.org/vimrc/
-set statusline=%#filepath#[%{expand('%:p')}]%#filetype#[%{strlen(&fenc)?&fenc:&enc},\ %{&ff},\ %{strlen(&filetype)?&filetype:'plain'}]%#filesize#%{FileSize()}%{IsBinary()}%=%#position#%c,%l/%L\ [%3p%%]
-hi filepath cterm=none ctermfg=White ctermbg=238
-hi filetype cterm=none ctermfg=White ctermbg=238
-hi filesize cterm=none ctermfg=White ctermbg=238
+set statusline=%#filepath#[%{expand('%:p')}]%#filetype#[%{strlen(&fenc)?&fenc:&enc}]%#filesize#%{FileSize()}%{IsBinary()}%=%#position#%c,%l/%L\ [%3p%%]
 hi position cterm=none ctermfg=228 ctermbg=238
 function IsBinary()
     if (&binary == 0)
