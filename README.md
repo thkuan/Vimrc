@@ -2,6 +2,8 @@
 ## **[Goal]:**
 Aim to edit/trace code easily with the text editor, **[Vim](http://www.vim.org/, "http://www.vim.org/")**. Before apply with this configurable file .vimrc, some plugins should be pre-installed.  
 
+![NERDTree/TagList/Ctags](./application.png)
+
 ## pathogen.vim
 Refer to [pathogen.vim](https://github.com/tpope/vim-pathogen, "https://github.com/tpope/vim-pathogen") for the installation, which makes it super easy to install plugins and runtime files in their own private directories.
 ```
