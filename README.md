@@ -1,6 +1,6 @@
 # .vimrc
 ## **[Goal]:**
-Aim to edit/trace code easily with the text editor, **[Vim](http://www.vim.org/, "http://www.vim.org/")**. Before apply with this configurable file .vimrc, some plugins should be pre-installed.  
+Aim to edit/trace code easily with the text editor, **[Vim](http://www.vim.org/, "http://www.vim.org/")**. Before apply with this configurable file .vimrc, some plugins should be pre-installed.
 
 ![NERDTree/TagList/Ctags](./application.png)
 
@@ -25,6 +25,8 @@ git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 ## Tag List
 ```
 git clone https://github.com/vim-scripts/taglist.vim ~/.vim/bundle/taglist
+mv ~/.vim/bundle/taglist/plugin ~/.vim/
+mv ~/.vim/bundle/taglist/doc ~/.vim/
 ```
 
 ## Color Theme - Molokai
