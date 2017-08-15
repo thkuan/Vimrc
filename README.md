@@ -24,12 +24,21 @@ git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 
 ## Tag List
 ```
-git clone https://github.com/vim-scripts/taglist.vim ~/.vim/bundle/taglist
-mv ~/.vim/bundle/taglist/plugin ~/.vim/
-mv ~/.vim/bundle/taglist/doc ~/.vim/
+git clone https://github.com/vim-scripts/taglist.vim ~/.vim/tmp
+mv ~/.vim/tmp/taglist/plugin ~/.vim/
+mv ~/.vim/tmp/taglist/doc ~/.vim/
+rm -rf ~/.vim/tmp
 ```
 
 ## Color Theme - Molokai
 ```
-git clone https://github.com/tomasr/molokai ~/.vim/colors
+git clone https://github.com/tomasr/molokai ~/.vim/tmp
+mv ~/.vim/tmp/colors/molokai.vim ~/.vim/colors
+rm -rf ~/.vim/tmp
+```
+
+
+## Cscope
+```
+apt-get install cscope
 ```
