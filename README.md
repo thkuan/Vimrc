@@ -30,13 +30,18 @@ mv ~/.vim/tmp/taglist/doc ~/.vim/
 rm -rf ~/.vim/tmp
 ```
 
-## Color Theme - Molokai
+## Color Scheme
+
+* Molokai
 ```
 git clone https://github.com/tomasr/molokai ~/.vim/tmp
 mv ~/.vim/tmp/colors/molokai.vim ~/.vim/colors
 rm -rf ~/.vim/tmp
 ```
-
+* torte
+```
+silent! colorscheme torte
+```
 
 ## Cscope
 ```
