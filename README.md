@@ -5,7 +5,7 @@ Aim to edit/trace code easily with the text editor, **[Vim](http://www.vim.org/,
 ![NERDTree/TagList/Ctags](./application.png)
 
 ## pathogen.vim
-Refer to [pathogen.vim](https://github.com/tpope/vim-pathogen, "https://github.com/tpope/vim-pathogen") for the installation, which makes it super easy to install plugins and runtime files in their own private directories.
+Refer to [pathogen.vim](https://github.com/tpope/vim-pathogen "https://github.com/tpope/vim-pathogen") for the installation, which makes it super easy to install plugins and runtime files in their own private directories.
 ```
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
@@ -25,8 +25,8 @@ git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 ## Tag List
 ```
 git clone https://github.com/vim-scripts/taglist.vim ~/.vim/tmp
-mv ~/.vim/tmp/taglist/plugin ~/.vim/
-mv ~/.vim/tmp/taglist/doc ~/.vim/
+mv ~/.vim/tmp/plugin ~/.vim/
+mv ~/.vim/tmp/doc ~/.vim/
 rm -rf ~/.vim/tmp
 ```
 
@@ -35,6 +35,7 @@ rm -rf ~/.vim/tmp
 * Molokai
 ```
 git clone https://github.com/tomasr/molokai ~/.vim/tmp
+mkdir -p ~/.vim/colors
 mv ~/.vim/tmp/colors/molokai.vim ~/.vim/colors
 rm -rf ~/.vim/tmp
 ```
