@@ -23,10 +23,10 @@ git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 ```
 
 ## Tag List
-```
+``` sh
 git clone https://github.com/vim-scripts/taglist.vim ~/.vim/tmp
-mv ~/.vim/tmp/taglist/plugin ~/.vim/
-mv ~/.vim/tmp/taglist/doc ~/.vim/
+mv ~/.vim/tmp/plugin ~/.vim/
+mv ~/.vim/tmp/doc ~/.vim/
 rm -rf ~/.vim/tmp
 ```
 
