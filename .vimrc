@@ -105,6 +105,7 @@ hi Include cterm=bold ctermfg=Red ctermbg=NONE
 hi PreCondi cterm=bold ctermfg=Red ctermbg=NONE
 hi Macro cterm=Italic ctermfg=White ctermbg=NONE
 hi Error cterm=Italic ctermfg=White ctermbg=NONE
+hi Visual cterm=bold ctermfg=black ctermbg=white
 ""hi Define cterm=Italic ctermfg=White ctermbg=NONE
 
 " Override color of status line
