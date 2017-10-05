@@ -48,3 +48,8 @@ silent! colorscheme torte
 ```
 apt-get install cscope
 ```
+
+```sh
+mkdir -p ~/.vim/plugin
+wget -P ~/.vim/plugin http://cscope.sourceforge.net/cscope_maps.vim
+```
