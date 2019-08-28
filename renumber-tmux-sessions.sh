@@ -1,6 +1,6 @@
 #!/bin/bash
 
-all_session_num=$(tmux ls | grep '^[0-9]\+:' | cut -f1 -d':' | sort)
+all_session_num=$(tmux ls | grep '^[0-9]\+:' | cut -f1 -d':' | sort -h)
 
 new_num=0
 for old_num in $all_session_num
