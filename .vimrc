@@ -6,7 +6,7 @@ silent! execute pathogen#infect()
 "
 " NERDTree plugin: https://github.com/scrooloose/nerdtree
 " Bind <F5> to quick open and close tree hierarchy
-map <F5> :NERDTreeToggle<CR>
+map <silent><F5> :NERDTreeToggle<CR>
 " Default open NERDTree
 silent! autocmd vimenter * NERDTree
 " Enable mosue click in NORMAL/VISUAL modes
@@ -20,7 +20,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "
 " TagList plugin: https://github.com/vim-scripts/taglist.vim
 " Bind <F6> to quick open and close taglist window
-map <F6> :TlistToggle<CR>
+map <silent><F6> :TlistToggle<CR>
 " Show current file Tlist
 let Tlist_Show_One_File = 1
 " Exit if Tlist is the last window
@@ -77,17 +77,45 @@ set expandtab
 set tabstop=4
 " Number of space chars inserted for indentation
 set shiftwidth=4
+" Make a line no wrap if it is longer than shown
+set nowrap
+" Enable wildmenu in command mode
+set wildmode=longest,list
 " Indent and backward indent in normal mode
 nmap <tab> V>
 nmap <S-Tab> V<
 
-" [makefiles]: Don't expand tabs to spaces, since actual tab characters are
-" needed, and have indentation at 8 chars to be sure that all indents are tabs
-" (despite the mappings later):
-autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
+if has("autocmd")
+augroup cprog
+    au!
+    " Make c program comment auto completion
+    autocmd FileType h,c,cpp set formatoptions=croql cindent comments=sr:/*,mb:*,el:*/,://
+
+    " [makefiles]: Don't expand tabs to spaces, since actual tab characters are
+    " needed, and have indentation at 8 chars to be sure that all indents are tabs
+    " (despite the mappings later):
+    autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
+    autocmd FileType *     set formatoptions=tcql nocindent comments&
+augroup END
 
 " Remove all trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
+endif
+
+" Fix control character if xterm
+if &term == "xterm"
+    set t_kb=^?
+    set t_kD=^H
+    fixdel
+endif
+
+" Move a line up/down
+nnoremap <S-DOWN> :m .+1<CR>==
+nnoremap <S-UP> :m .-2<CR>==
+inoremap <S-DOWN> <Esc>:m .+1<CR>==gi
+inoremap <S-UP> <Esc>:m .-2<CR>==gi
+vnoremap <S-DOWN> :m '>.+1<CR>gv==gv
+vnoremap <S-Up> :m '<.-21<CR>gv==gv
 
 "
 " Color Settings
